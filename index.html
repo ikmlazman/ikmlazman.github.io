@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                padding: 6px;
+                overflow-x: hidden;
+                font-size: 14px;
+            }
+            .font{
+                color: black;
+            }
+            .link {
+                color:blue;
+                text-decoration: none;
+            }
+            .link:hover {
+                text-decoration: underline;
+            }
+            .container {
+                position: relative;
+                width: 100%;
+                max-width: 600px;
+                margin: 0 auto;
+                text-align: left
+            }
+            #btn {
+                padding: 8px 16px;
+                font-size: 12px;
+                cursor: pointer;
+                background-color: white;
+                border: 1px solid black;
+                border-radius: 3px;
+                position: relative;
+                z-index: 10;
+                background-color: greenyellow;
+            }
+            .bendera {
+                position: absolute;
+                width: 150px;
+                height: auto;
+                display: none;
+                z-index: 1;
+            }
+            #bendera1 {
+                top: 50px;
+                left: 0;
+            }
+            #bendera2 {
+                top: 160px;
+                left: 0;
+            }
+            .wrap {
+                position: relative;
+                display: inline-block;
+                margin-top: 10px;
+                min-width: 150px;
+                min-height: 300px;
+            }
+            .animate-bendera1 {
+                display: block;
+                animation: slideFromLeft 2s forwards ease-out;
+            }
+            .animate-bendera2 {
+                display: block;
+                animation: slideFromRight 2s forwards ease-out;
+            }
+
+            @keyframes slideFromLeft {
+                0% {
+                    transform: translateX(-300px);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+
+            @keyframes slideFromRight {
+                0% {
+                    transform: translateX(300px);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="font">Hi, Welcome Interviewee!</h1>
+            <p class="font">
+                "For this task, kindly recreate this page using only html, css and pure javascript (or any related programming language) without using external library such as jQuery and submit your file at
+                <a class="link" href="mailto:support.@aimaerial.com">support@aimaerial.com</a> within 24 hours."
+            </p>
+
+            <div class="wrap">
+                <button id="btn">Start</button>
+                <img src="malaysiaflag.png" id="bendera1" class="bendera" alt="bendera1">
+                <img src="malaysiaflag.png" id="bendera2" class="bendera" alt="bendera2">
+            </div>
+        </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.getElementById('btn');
+        const bendera1 = document.getElementById('bendera1');
+        const bendera2= document.getElementById('bendera2');
+
+        btn.addEventListener('click', function() {
+            bendera1.classList.remove('animate-bendera1');
+            bendera2.classList.remove('animate-bendera2');
+
+            void bendera1.offsetWidth;
+            bendera1.classList.add('animate-bendera1');
+            bendera2.classList.add('animate-bendera2');
+        });
+    });
+</script>
+
+    </body>
+</html>
